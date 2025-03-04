@@ -1,31 +1,183 @@
 import React from 'react'
 import { FaIndustry, FaCheckCircle, FaPhone, FaEnvelope, FaWarehouse, FaTruck, FaFlask } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import Carousel from '../../Components/Carousel'
+
+const heroCarouselData = [
+  {
+    image: "/images/slide1.jpg",
+    alt: "Innovators in Silica Sand",
+    content: (
+      <div className="text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-6xl font-bold mb-6 text-white"
+        >
+          Innovators in Silica Sand & Resin Coated Sand
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-xl md:text-2xl mb-8 text-white"
+        >
+          Taking the Industry Forward with Innovation & Technology
+        </motion.p>
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300"
+        >
+          Contact Us
+        </motion.button>
+      </div>
+    )
+  },
+  {
+    image: "/images/slide2.jpg",
+    alt: "Premium Quality Products",
+    content: (
+      <div className="text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-6xl font-bold mb-6 text-white"
+        >
+          Premium Quality Products
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-xl md:text-2xl mb-8 text-white"
+        >
+          Meeting International Standards with Excellence
+        </motion.p>
+      </div>
+    )
+  },
+  {
+    image: "/images/slide3.jpg",
+    alt: "Global Reach",
+    content: (
+      <div className="text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-6xl font-bold mb-6 text-white"
+        >
+          Global Reach, Local Touch
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-xl md:text-2xl mb-8 text-white"
+        >
+          Serving Industries Worldwide with Dedication
+        </motion.p>
+      </div>
+    )
+  }
+];
+
+const aboutCarouselData = [
+  {
+    image: "/images/about1.jpg",
+    alt: "Our Facility"
+  },
+  {
+    image: "/images/about2.jpg",
+    alt: "Production Process"
+  },
+  {
+    image: "/images/about3.jpg",
+    alt: "Quality Testing"
+  }
+];
+
+const stats = [
+  { number: "30,000 MT", label: "Total Storage Capacity" },
+  { number: "10,000 MT", label: "Monthly Supply" },
+  { number: "15,000 MT", label: "Monthly Supply Capacity" },
+  { number: "20 MT/hr", label: "Automatic Dryers Capacity" }
+]
 
 const LandingPage = () => {
-  const stats = [
-    { number: "30,000 MT", label: "Total Storage Capacity" },
-    { number: "10,000 MT", label: "Monthly Supply" },
-    { number: "15,000 MT", label: "Monthly Supply Capacity" },
-    { number: "20 MT/hr", label: "Automatic Dryers Capacity" }
-  ]
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-700 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
-          >
-            Innovators in Silica Sand & Resin Coated Sand
-          </motion.h1>
-          <p className="text-xl md:text-2xl mb-8">Taking the Industry Forward with Innovation & Technology</p>
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300">
-            Contact Us
-          </button>
+      <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
+        <Carousel 
+          data={heroCarouselData}
+          height="75vh"
+          interval={5000}
+          showOverlay={true}
+          overlayColor="bg-black/50"
+        />
+      </section>
+
+      {/* About Us Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-16">About Us</h2>
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="md:w-1/2">
+              <p className="mb-8">
+                Premier Silica Industries is a renowned producer and supplier of high-quality silica sand, backed by 35 years of expertise in the industry. Our deep-rooted experience, commitment to quality, and customer-centric approach have earned us a strong reputation as a trusted and reliable name in silica sand supply across India.
+              </p>
+              <p className="mb-8">
+                Our state-of-the-art processing plant is strategically located in the village of Kachari, near Shankargarh, Prayagraj (Allahabad), Uttar Pradesh. This region is naturally gifted with some of the finest quality silica sand deposits, making it an ideal hub for sourcing premium-grade silica sand.
+              </p>
+              <p className="mb-8">
+                Over the years, we have established ourselves as a leading player in the industry, catering to diverse sectors with our superior-quality products.
+              </p>
+              <p className="mb-8">
+                The Shankargarh region is widely recognized for its high-purity silica sand, containing a silica percentage of over 98% and extremely low Fe₂O₃ (iron oxide) levels, making it highly sought after for various industrial applications. Silica, scientifically known as silicon dioxide (SiO₂), is composed of one silicon atom and two oxygen atoms, forming the fundamental building block of many essential industrial materials.
+              </p>
+              <p className="mb-8">
+                At Premier Silica Industries, we take pride in maintaining stringent quality control measures at every stage of production. Our advanced infrastructure, which includes cutting-edge mechanical washing, screening, and drying units, ensures that our silica sand meets the highest industry standards.
+              </p>
+              <p className="mb-8">
+                Whether it is for foundries, glass manufacturing, construction, or other industrial applications, our consistent supply and superior quality make us a preferred choice for clients across India.
+              </p>
+              <p className="mb-8">
+                With decades of experience and an unwavering commitment to excellence, Premier Silica Industries continues to lead the way in providing high-purity, high-performance silica sand, fulfilling the evolving demands of industries with precision, reliability, and trust.
+              </p>
+            </div>
+
+            <div className="md:w-1/2">
+              <Carousel 
+                data={aboutCarouselData}
+                height="700px"
+                interval={4000}
+                showOverlay={true}
+              />
+            </div>
+          </div>
+          <div className="md:w-full mt-16">
+              <h2 className="text-3xl font-bold text-center mb-8">Quality Control</h2>
+              <p className="mb-8">
+                Premier Silica Industries takes immense pride in its state-of-the-art laboratory, equipped with advanced testing facilities and operated by a team of highly qualified and experienced chemists. Our dedication to maintaining uncompromised quality standards has made us a trusted name in the silica sand industry.
+              </p>
+              <p className="mb-8">
+                Our laboratory is ISO-certified, allowing us to exercise rigorous quality control over raw materials right from the extraction stage. This ensures that only the finest silica sand reaches our clients, meeting their specific industry requirements with consistency and precision.
+              </p>
+              <p className="mb-8">
+                To uphold the highest quality standards, we follow a multi-stage quality control process at every step of production:
+              </p>
+              <ul className="list-disc mb-8">
+                <li>Raw Material Testing: Before processing, the raw silica sand undergoes detailed analysis to check for silica content, impurities, grain size distribution, and Fe₂O₃ (iron oxide) levels.</li>
+                <li>In-Process Quality Checks: At every stage of washing, screening, grading, and drying, intermediate quality checks are conducted to ensure adherence to required specifications.</li>
+                <li>Final Product Inspection: The finished silica sand undergoes comprehensive testing, including chemical composition analysis, moisture content verification, and particle size distribution checks before being approved for dispatch.</li>
+                <li>Certification & Compliance: As part of our ISO certification, we strictly adhere to industry standards and specifications, ensuring reliable, high-purity silica sand for our customers.</li>
+              </ul>
+              <p className="mb-8">
+                Our commitment to excellence enables us to supply high-performance silica sand that meets the stringent demands of industries such as foundries, glass manufacturing, construction, ceramics, paints, coatings, and more. By leveraging cutting-edge technology and expert supervision, Premier Silica Industries continues to set benchmarks in quality, ensuring customer satisfaction and long-term partnerships.
+              </p>
+            </div>
         </div>
       </section>
 
