@@ -98,7 +98,7 @@ const ContactUs = () => {
               ></iframe>
             </div>
           </div>
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6 border-[1px] border-black-300 rounded p-6" onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
