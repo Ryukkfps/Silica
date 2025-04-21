@@ -155,7 +155,7 @@ const LandingPage = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16" style={{ backgroundColor: '#fbf7f1' }}>
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16 fade-in">About Us</h2>
           <div className="flex flex-col md:flex-row gap-8">
@@ -237,7 +237,7 @@ const LandingPage = () => {
       </section> */}
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: '#fbf7f1' }}>
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16">Why Choose Us?</h2>
           <div className="grid md:grid-cols-3 gap-12">

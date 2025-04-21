@@ -10,7 +10,7 @@ function App() {
       <div className="flex flex-col min-h-screen">
         <InfoHeader />
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow" style={{ backgroundColor: '#fbf7f1' }}>
           <AppRoutes />
         </main>
       </div>
