@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 import Carousel from '../../Components/Carousel'
+import p1 from '../../assets/p1.jpeg';
+import p6 from '../../assets/p6.jpeg';
+import p7 from '../../assets/p7.jpeg';
 
 const AboutUs = () => {
 
@@ -25,20 +28,20 @@ const AboutUs = () => {
     };
   }, []);
 
-  const aboutCarouselData = [
-    {
-      image: "/images/about1.jpg",
-      alt: "Our Facility"
-    },
-    {
-      image: "/images/about2.jpg",
-      alt: "Production Process"
-    },
-    {
-      image: "/images/about3.jpg",
-      alt: "Quality Testing"
-    }
-  ];
+const aboutCarouselData = [
+  {
+    image: p1,
+    alt: "Our Facility"
+  },
+  {
+    image: p6,
+    alt: "Production Process"
+  },
+  {
+    image: p7,
+    alt: "Quality Testing"
+  }
+];
 
   return (
     <section className="py-16 bg-white">

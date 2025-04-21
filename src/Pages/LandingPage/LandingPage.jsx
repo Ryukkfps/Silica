@@ -3,10 +3,22 @@ import { FaIndustry, FaCheckCircle, FaPhone, FaEnvelope, FaWarehouse, FaTruck, F
 import { motion } from 'framer-motion'
 import Carousel from '../../Components/Carousel'
 import Gallery from '../Gallery/Gallery';
+import p1 from '../../assets/p1.jpeg';
+import p2 from '../../assets/p2.jpg';
+import p3 from '../../assets/p3.jpg';
+import p4 from '../../assets/p4.jpg';
+import p5 from '../../assets/p5.jpg';
+import p6 from '../../assets/p6.jpeg';
+import p7 from '../../assets/p7.jpeg';
+import p8 from '../../assets/p8.jpeg';
+import p9 from '../../assets/p9.jpg';
+import p10 from '../../assets/p10.jpg';
+import p11 from '../../assets/p11.jpg';
+import ContactUs from '../ContactUs/ContactUs';
 
 const heroCarouselData = [
   {
-    image: "/images/slide1.jpg",
+    image: p9,
     alt: "Innovators in Silica Sand",
     content: (
       <div className="text-center">
@@ -37,7 +49,7 @@ const heroCarouselData = [
     )
   },
   {
-    image: "/images/slide2.jpg",
+    image: p10,
     alt: "Premium Quality Products",
     content: (
       <div className="text-center">
@@ -60,7 +72,7 @@ const heroCarouselData = [
     )
   },
   {
-    image: "/images/slide3.jpg",
+    image: p11,
     alt: "Global Reach",
     content: (
       <div className="text-center">
@@ -86,15 +98,15 @@ const heroCarouselData = [
 
 const aboutCarouselData = [
   {
-    image: "/images/about1.jpg",
+    image: p1,
     alt: "Our Facility"
   },
   {
-    image: "/images/about2.jpg",
+    image: p6,
     alt: "Production Process"
   },
   {
-    image: "/images/about3.jpg",
+    image: p7,
     alt: "Quality Testing"
   }
 ];
@@ -133,7 +145,7 @@ const LandingPage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
-        <Carousel 
+        <Carousel
           data={heroCarouselData}
           height="75vh"
           interval={5000}
@@ -172,7 +184,7 @@ const LandingPage = () => {
             </div>
 
             <div className="md:w-1/2">
-              <Carousel 
+              <Carousel
                 data={aboutCarouselData}
                 height="700px"
                 interval={4000}
@@ -209,7 +221,7 @@ const LandingPage = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -260,7 +272,7 @@ const LandingPage = () => {
       </section>
 
       {/* Gallery Section */}
-      <Gallery/>
+      <Gallery limitImages={true} />
 
       {/* Products Section */}
       {/* <section className="py-20 bg-gray-50">
@@ -268,11 +280,17 @@ const LandingPage = () => {
           <h2 className="text-4xl font-bold text-center mb-16">Our Premium Products</h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="bg-white p-8 rounded-lg shadow-lg">
+              <div className="mb-4 overflow-hidden rounded-lg">
+                <img src={p6} alt="Washed Silica Sand" className="w-full h-48 object-cover" />
+              </div>
               <h3 className="text-2xl font-semibold mb-4">Washed, Dry & Graded Silica Sand</h3>
               <p className="text-gray-600 mb-6">Ideal for multiple sectors, our high-purity sand is processed for uniform particle size.</p>
               <button className="text-blue-600 font-semibold hover:text-blue-800">Learn More →</button>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
+              <div className="mb-4 overflow-hidden rounded-lg">
+                <img src={p7} alt="Resin Coated Sand" className="w-full h-48 object-cover" />
+              </div>
               <h3 className="text-2xl font-semibold mb-4">Resin Coated Sand</h3>
               <p className="text-gray-600 mb-6">Perfect for Foundries and Casting Processes, enhancing mold strength, precision, and surface finish.</p>
               <button className="text-blue-600 font-semibold hover:text-blue-800">Learn More →</button>
@@ -297,7 +315,7 @@ const LandingPage = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-blue-900 text-white">
+      {/* <section className="py-20 bg-blue-900 text-white">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16">Get in Touch</h2>
           <div className="grid md:grid-cols-2 gap-12">
@@ -323,7 +341,8 @@ const LandingPage = () => {
             </form>
           </div>
         </div>
-      </section>
+      </section> */}
+      <ContactUs/>
     </div>
   )
 }

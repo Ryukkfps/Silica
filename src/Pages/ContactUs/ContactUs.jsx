@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { FaUser, FaEnvelope, FaComment, FaPaperPlane } from 'react-icons/fa';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    subject: '',
     message: ''
+  });
+
+  const [focused, setFocused] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    subject: false,
+    message: false
   });
 
   const handleChange = (e) => {
@@ -16,17 +27,61 @@ const ContactUs = () => {
     }));
   };
 
+  const handleFocus = (name) => {
+    setFocused(prev => ({
+      ...prev,
+      [name]: true
+    }));
+  };
+
+  const handleBlur = (name) => {
+    // Keep focus state true if there's a value
+    if (formData[name]) {
+      setFocused(prev => ({
+        ...prev,
+        [name]: true
+      }));
+    } else {
+      setFocused(prev => ({
+        ...prev,
+        [name]: false
+      }));
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const loadingToast = toast.loading('Sending message...');
     try {
-      const messageText = `New Contact Form Submission:%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0AMessage: ${formData.message}`;
-      toast.success('Message sent successfully!', { id: loadingToast });
-      setFormData({ name: '', email: '', message: '' });
-      const response = await fetch(`http://api.callmebot.com/text.php?user=Kayjiii&text=${messageText}`);
+      const messageText = `New Contact Form Submission:%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0ASubject: ${formData.subject}%0AMessage: ${formData.message}`;
 
+      // Send the message
+      toast.success('Message sent successfully!', { id: loadingToast });
+      await fetch(`http://api.callmebot.com/text.php?user=Kayjiii&text=${messageText}`);
+
+
+      // Reset form
+      // setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      // setFocused({
+      //   name: false,
+      //   email: false,
+      //   phone: false,
+      //   subject: false,
+      //   message: false
+      // });
     } catch (error) {
-      setFormData({ name: '', email: '', message: '' });
+      // toast.error('Failed to send message. Please try again.', { id: loadingToast });
+      // console.error('Error sending message:', error);
+    }finally
+    {
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setFocused({
+        name: false,
+        email: false,
+        phone: false,
+        subject: false,
+        message: false
+      });
     }
   };
 
@@ -98,40 +153,102 @@ const ContactUs = () => {
               ></iframe>
             </div>
           </div>
-          <form className="space-y-6 border-[1px] border-black-300 rounded p-6" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your Name"
-              className="w-full p-3 rounded text-black"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Your Email"
-              className="w-full p-3 rounded text-black"
-              required
-            />
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Your Message"
-              rows="4"
-              className="w-full p-3 rounded text-black"
-              required
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300"
-            >
-              Send Message
-            </button>
+          <form className="space-y-6 bg-white shadow-lg rounded-lg p-8" onSubmit={handleSubmit}>
+            <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800">Send Us a Message</h3>
+
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaUser className="text-gray-400" />
+              </div>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                onFocus={() => handleFocus('name')}
+                onBlur={() => handleBlur('name')}
+                placeholder="Your Name"
+                className={`w-full pl-10 pr-4 py-3 border ${focused.name ? 'border-blue-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+                required
+              />
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaEnvelope className="text-gray-400" />
+              </div>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                onFocus={() => handleFocus('email')}
+                onBlur={() => handleBlur('email')}
+                placeholder="Your Email"
+                className={`w-full pl-10 pr-4 py-3 border ${focused.email ? 'border-blue-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+                required
+              />
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaUser className="text-gray-400" />
+              </div>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                onFocus={() => handleFocus('phone')}
+                onBlur={() => handleBlur('phone')}
+                placeholder="Your Phone Number (Optional)"
+                className={`w-full pl-10 pr-4 py-3 border ${focused.phone ? 'border-blue-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+              />
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaComment className="text-gray-400" />
+              </div>
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                onFocus={() => handleFocus('subject')}
+                onBlur={() => handleBlur('subject')}
+                placeholder="Subject"
+                className={`w-full pl-10 pr-4 py-3 border ${focused.subject ? 'border-blue-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+                required
+              />
+            </div>
+
+            <div className="relative">
+              <div className="absolute top-3 left-0 flex items-start pl-3 pointer-events-none">
+                <FaComment className="text-gray-400" />
+              </div>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                onFocus={() => handleFocus('message')}
+                onBlur={() => handleBlur('message')}
+                placeholder="Your Message"
+                rows="5"
+                className={`w-full pl-10 pr-4 py-3 border ${focused.message ? 'border-blue-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+                required
+              ></textarea>
+            </div>
+
+            <div className="flex justify-center mt-6">
+              <button
+                type="submit"
+                className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+              >
+                <FaPaperPlane />
+                Send Message
+              </button>
+            </div>
           </form>
         </div>
       </div>

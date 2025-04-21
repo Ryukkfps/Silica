@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-gray-800">Silica</span>
+            <span className="text-2xl font-bold text-gray-800">Premiers Silica Industries</span>
           </Link>
 
           {/* Desktop Navigation */}

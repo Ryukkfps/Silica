@@ -12,7 +12,7 @@ const InfoHeader = () => {
           </a>
           <a href="mailto:info@silica.com" className="flex items-center hover:text-gray-300 transition-colors">
             <FaEnvelope className="mr-2" />
-            <span>info@silica.com</span>
+            <span>info@premiersilicaindustries.com</span>
           </a>
         </div>
       </div>
