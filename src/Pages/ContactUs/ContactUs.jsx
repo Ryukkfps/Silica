@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { FaUser, FaEnvelope, FaComment, FaPaperPlane } from 'react-icons/fa';
+import axios from 'axios';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -51,37 +52,24 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const loadingToast = toast.loading('Sending message...');
+  
+    const form = e.target;
+    const data = new FormData(form);
+  
     try {
-      const messageText = `New Contact Form Submission:%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0ASubject: ${formData.subject}%0AMessage: ${formData.message}`;
-
-      // Send the message
-      toast.success('Message sent successfully!', { id: loadingToast });
-      await fetch(`http://api.callmebot.com/text.php?user=Kayjiii&text=${messageText}`);
-
-
-      // Reset form
-      // setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      // setFocused({
-      //   name: false,
-      //   email: false,
-      //   phone: false,
-      //   subject: false,
-      //   message: false
-      // });
-    } catch (error) {
-      // toast.error('Failed to send message. Please try again.', { id: loadingToast });
-      // console.error('Error sending message:', error);
-    }finally
-    {
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      setFocused({
-        name: false,
-        email: false,
-        phone: false,
-        subject: false,
-        message: false
-      });
+      const response = await axios.post(
+        "https://script.google.com/macros/s/AKfycbxY8SvWSC1TVCzYDcBLrwq0MOGb5pJsA0JW-NqnuWop2veZY-Nv4Ak5RfPaR7TJ14Hj/exec",
+        data
+      );
+  
+      const result = response.data;
+      if (result.result === "success") {
+        toast.success("Form submitted successfully!");
+      } else {
+        toast.error("Form submission failed:", result.error);
+      }
+    } catch (err) {
+      console.error("Error submitting form:", err);
     }
   };
 
