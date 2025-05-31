@@ -15,110 +15,17 @@ import p9 from '../../assets/p9.jpg';
 import p10 from '../../assets/p10.jpg';
 import p11 from '../../assets/p11.jpg';
 import ContactUs from '../ContactUs/ContactUs';
+import { useNavigate } from 'react-router-dom';
 
-const heroCarouselData = [
-  {
-    image: p9,
-    alt: "Innovators in Silica Sand",
-    content: (
-      <div className="text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold mb-6 text-white"
-        >
-          Innovators in Silica Sand
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-xl md:text-2xl mb-8 text-white"
-        >
-          Taking the Industry Forward with Innovation & Technology
-        </motion.p>
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300"
-        >
-          Contact Us
-        </motion.button>
-      </div>
-    )
-  },
-  {
-    image: p10,
-    alt: "Premium Quality Products",
-    content: (
-      <div className="text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold mb-6 text-white"
-        >
-          Premium Quality Products
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-xl md:text-2xl mb-8 text-white"
-        >
-          Meeting International Standards with Excellence
-        </motion.p>
-      </div>
-    )
-  },
-  {
-    image: p11,
-    alt: "Global Reach",
-    content: (
-      <div className="text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold mb-6 text-white"
-        >
-          Global Reach, Local Touch
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-xl md:text-2xl mb-8 text-white"
-        >
-          Serving Industries Worldwide with Dedication
-        </motion.p>
-      </div>
-    )
-  }
-];
 
-const aboutCarouselData = [
-  {
-    image: p1,
-    alt: "Our Facility"
-  },
-  {
-    image: p6,
-    alt: "Production Process"
-  },
-  {
-    image: p7,
-    alt: "Quality Testing"
-  }
-];
 
-const stats = [
-  { number: "30,000 MT", label: "Total Storage Capacity" },
-  { number: "10,000 MT", label: "Monthly Supply" },
-  { number: "15,000 MT", label: "Monthly Supply Capacity" },
-  { number: "20 MT/hr", label: "Automatic Dryers Capacity" }
-]
+
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+  const navigateToContact = () => {
+    navigate('/contact');
+  };
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -141,6 +48,109 @@ const LandingPage = () => {
     };
   }, []);
 
+  const heroCarouselData = [
+    {
+      image: p9,
+      alt: "Innovators in Silica Sand",
+      content: (
+        <div className="text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-6xl font-bold mb-6 text-white"
+          >
+            Innovators in Silica Sand
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl mb-8 text-white"
+          >
+            Taking the Industry Forward with Innovation & Technology
+          </motion.p>
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            onClick={navigateToContact}
+            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300"
+          >
+            Contact Us
+          </motion.button>
+        </div>
+      )
+    },
+    {
+      image: p10,
+      alt: "Premium Quality Products",
+      content: (
+        <div className="text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-6xl font-bold mb-6 text-white"
+          >
+            Premium Quality Products
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl mb-8 text-white"
+          >
+            Meeting International Standards with Excellence
+          </motion.p>
+        </div>
+      )
+    },
+    {
+      image: p11,
+      alt: "Global Reach",
+      content: (
+        <div className="text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-6xl font-bold mb-6 text-white"
+          >
+            Global Reach, Local Touch
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl mb-8 text-white"
+          >
+            Serving Industries Worldwide with Dedication
+          </motion.p>
+        </div>
+      )
+    }
+  ];
+  
+  const aboutCarouselData = [
+    {
+      image: p1,
+      alt: "Our Facility"
+    },
+    {
+      image: p6,
+      alt: "Production Process"
+    },
+    {
+      image: p7,
+      alt: "Quality Testing"
+    }
+  ];
+  
+  const stats = [
+    { number: "30,000 MT", label: "Total Storage Capacity" },
+    { number: "10,000 MT", label: "Monthly Supply" },
+    { number: "15,000 MT", label: "Monthly Supply Capacity" },
+    { number: "20 MT/hr", label: "Automatic Dryers Capacity" }
+  ]
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -193,26 +203,26 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="md:w-full mt-16">
-              <h2 className="text-3xl font-bold text-center mb-8 fade-in">Quality Control</h2>
-              <p className="mb-8 fade-in">
-                Premier Silica Industries takes immense pride in its state-of-the-art laboratory, equipped with advanced testing facilities and operated by a team of highly qualified and experienced chemists. Our dedication to maintaining uncompromised quality standards has made us a trusted name in the silica sand industry.
-              </p>
-              <p className="mb-8 fade-in">
-                Our laboratory is ISO-certified, allowing us to exercise rigorous quality control over raw materials right from the extraction stage. This ensures that only the finest silica sand reaches our clients, meeting their specific industry requirements with consistency and precision.
-              </p>
-              <p className="mb-8 fade-in">
-                To uphold the highest quality standards, we follow a multi-stage quality control process at every step of production:
-              </p>
-              <ul className="list-disc mb-8 fade-in">
-                <li>Raw Material Testing: Before processing, the raw silica sand undergoes detailed analysis to check for silica content, impurities, grain size distribution, and Fe₂O₃ (iron oxide) levels.</li>
-                <li>In-Process Quality Checks: At every stage of washing, screening, grading, and drying, intermediate quality checks are conducted to ensure adherence to required specifications.</li>
-                <li>Final Product Inspection: The finished silica sand undergoes comprehensive testing, including chemical composition analysis, moisture content verification, and particle size distribution checks before being approved for dispatch.</li>
-                <li>Certification & Compliance: As part of our ISO certification, we strictly adhere to industry standards and specifications, ensuring reliable, high-purity silica sand for our customers.</li>
-              </ul>
-              <p className="mb-8 fade-in">
-                Our commitment to excellence enables us to supply high-performance silica sand that meets the stringent demands of industries such as foundries, glass manufacturing, construction, ceramics, paints, coatings, and more. By leveraging cutting-edge technology and expert supervision, Premier Silica Industries continues to set benchmarks in quality, ensuring customer satisfaction and long-term partnerships.
-              </p>
-            </div>
+            <h2 className="text-3xl font-bold text-center mb-8 fade-in">Quality Control</h2>
+            <p className="mb-8 fade-in">
+              Premier Silica Industries takes immense pride in its state-of-the-art laboratory, equipped with advanced testing facilities and operated by a team of highly qualified and experienced chemists. Our dedication to maintaining uncompromised quality standards has made us a trusted name in the silica sand industry.
+            </p>
+            <p className="mb-8 fade-in">
+              Our laboratory is ISO-certified, allowing us to exercise rigorous quality control over raw materials right from the extraction stage. This ensures that only the finest silica sand reaches our clients, meeting their specific industry requirements with consistency and precision.
+            </p>
+            <p className="mb-8 fade-in">
+              To uphold the highest quality standards, we follow a multi-stage quality control process at every step of production:
+            </p>
+            <ul className="list-disc mb-8 fade-in">
+              <li>Raw Material Testing: Before processing, the raw silica sand undergoes detailed analysis to check for silica content, impurities, grain size distribution, and Fe₂O₃ (iron oxide) levels.</li>
+              <li>In-Process Quality Checks: At every stage of washing, screening, grading, and drying, intermediate quality checks are conducted to ensure adherence to required specifications.</li>
+              <li>Final Product Inspection: The finished silica sand undergoes comprehensive testing, including chemical composition analysis, moisture content verification, and particle size distribution checks before being approved for dispatch.</li>
+              <li>Certification & Compliance: As part of our ISO certification, we strictly adhere to industry standards and specifications, ensuring reliable, high-purity silica sand for our customers.</li>
+            </ul>
+            <p className="mb-8 fade-in">
+              Our commitment to excellence enables us to supply high-performance silica sand that meets the stringent demands of industries such as foundries, glass manufacturing, construction, ceramics, paints, coatings, and more. By leveraging cutting-edge technology and expert supervision, Premier Silica Industries continues to set benchmarks in quality, ensuring customer satisfaction and long-term partnerships.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -260,7 +270,7 @@ const LandingPage = () => {
             <div className="text-center p-6 bg-gray-50 rounded-lg shadow-lg fade-in">
               <FaFlask className="text-5xl text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-4">Quality Certified</h3>
-            <p>ISO 9001:2015 certified company, providing Premium Quality silica sand</p>
+              <p>ISO 9001:2015 certified company, providing Premium Quality silica sand</p>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg shadow-lg fade-in">
               <FaTruck className="text-5xl text-blue-600 mx-auto mb-4" />
@@ -342,7 +352,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section> */}
-      <ContactUs/>
+      <ContactUs />
     </div>
   )
 }
