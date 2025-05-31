@@ -131,13 +131,13 @@ const ContactUs = () => {
             </div>
             <div className="mt-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019244205672!2d81.8594736153165!3d25.45333333333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c1ebd8e9f7a4d%3A0x9b7c82f7f2e1c6a8!2s25%C2%B027%2712.4%22N+81%C2%B051%2734.1%22E!5e0!3m2!1sen!2sus!4v1633078279365!5m2!1sen!2sus"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                title="Google Maps Location"
+                //src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019244205672!2d81.8594736153165!3d25.45333333333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c1ebd8e9f7a4d%3A0x9b7c82f7f2e1c6a8!2s25%C2%B027%2712.4%22N+81%C2%B051%2734.1%22E!5e0!3m2!1sen!2sus!4v1633078279365!5m2!1sen!2sus"
+                //width="100%"
+                //height="300"
+                //style={{ border: 0 }}
+                //allowFullScreen=""
+                //loading="lazy"
+                //title="Google Maps Location"
               ></iframe>
             </div>
           </div>
