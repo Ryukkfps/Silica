@@ -225,27 +225,6 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Stats Section
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <h3 className="text-3xl font-bold text-blue-900 mb-2">{stat.number}</h3>
-                <p className="text-gray-600">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* Features Section */}
       <section className="py-20" style={{ backgroundColor: '#fbf7f1' }}>
         <div className="container mx-auto px-6">
@@ -283,32 +262,6 @@ const LandingPage = () => {
 
       {/* Gallery Section */}
       <Gallery limitImages={true} />
-
-      {/* Products Section */}
-      {/* <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16">Our Premium Products</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="mb-4 overflow-hidden rounded-lg">
-                <img src={p6} alt="Washed Silica Sand" className="w-full h-48 object-cover" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Washed, Dry & Graded Silica Sand</h3>
-              <p className="text-gray-600 mb-6">Ideal for multiple sectors, our high-purity sand is processed for uniform particle size.</p>
-              <button className="text-blue-600 font-semibold hover:text-blue-800">Learn More →</button>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="mb-4 overflow-hidden rounded-lg">
-                <img src={p7} alt="Resin Coated Sand" className="w-full h-48 object-cover" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Resin Coated Sand</h3>
-              <p className="text-gray-600 mb-6">Perfect for Foundries and Casting Processes, enhancing mold strength, precision, and surface finish.</p>
-              <button className="text-blue-600 font-semibold hover:text-blue-800">Learn More →</button>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Industries Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
@@ -323,35 +276,6 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Contact Section */}
-      {/* <section className="py-20 bg-blue-900 text-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16">Get in Touch</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold">Contact Information</h3>
-              <div className="flex items-center space-x-4">
-                <FaPhone className="text-2xl" />
-                <span>+91 (XXX) XXX-XXXX</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <FaEnvelope className="text-2xl" />
-                <span>info@yourcompany.com</span>
-              </div>
-              <p className="mt-4">Based in Shankargarh, Prayagraj (Allahabad)</p>
-            </div>
-            <form className="space-y-6">
-              <input type="text" placeholder="Your Name" className="w-full p-3 rounded text-black" />
-              <input type="email" placeholder="Your Email" className="w-full p-3 rounded text-black" />
-              <textarea placeholder="Your Message" rows="4" className="w-full p-3 rounded text-black"></textarea>
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </section> */}
       <ContactUs />
     </div>
   )
