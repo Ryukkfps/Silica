@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { FaIndustry, FaCheckCircle, FaPhone, FaEnvelope, FaWarehouse, FaTruck, FaFlask } from 'react-icons/fa'
+import { FaIndustry, FaCheckCircle, FaPhone, FaEnvelope, FaWarehouse, FaTruck, FaFlask, FaWhatsapp } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import Carousel from '../../Components/Carousel'
 import Gallery from '../Gallery/Gallery';
@@ -16,6 +16,7 @@ import p10 from '../../assets/p10.jpg';
 import p11 from '../../assets/p11.jpg';
 import ContactUs from '../ContactUs/ContactUs';
 import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -128,7 +129,7 @@ const LandingPage = () => {
       )
     }
   ];
-  
+
   const aboutCarouselData = [
     {
       image: p1,
@@ -143,14 +144,14 @@ const LandingPage = () => {
       alt: "Quality Testing"
     }
   ];
-  
+
   const stats = [
     { number: "30,000 MT", label: "Total Storage Capacity" },
     { number: "10,000 MT", label: "Monthly Supply" },
     { number: "15,000 MT", label: "Monthly Supply Capacity" },
     { number: "20 MT/hr", label: "Automatic Dryers Capacity" }
   ]
-  
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -165,8 +166,8 @@ const LandingPage = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="py-16" style={{ backgroundColor: '#fbf7f1' }}>
-        <div className="container mx-auto px-6">
+      <section className="py-16 relative z-50" style={{ backgroundColor: '#fbf7f1' }}>
+        <div className="container mx-auto px-6 ">
           <h2 className="text-4xl font-bold text-center mb-16 fade-in">About Us</h2>
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/2 fade-in">
@@ -266,8 +267,8 @@ const LandingPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16">Industries We Serve</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {['Automotive', 'Construction', 'Foundries', 'Glass Manufacturing'].map((industry, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {['Automotive', 'Foundries', 'Glass Manufacturing'].map((industry, index) => (
               <div key={index} className="text-center p-6">
                 <FaIndustry className="text-4xl text-blue-600 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold">{industry}</h3>
